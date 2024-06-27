@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         Menu화면입니다.
     </div>
@@ -8,6 +8,6 @@ export default {
     name:'Menu',
 }
 </script>
-<style lang="">
+<style>
     
 </style>

@@ -4,5 +4,5 @@ module.exports = defineConfig({
   outputDir: '../src/main/resources/static', // Build Directory
   devServer: {
     proxy: 'http://localhost:9090' // Spring Boot Server
-  }
+  },
 });
