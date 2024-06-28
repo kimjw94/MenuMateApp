@@ -4,6 +4,7 @@
 
 <script>
 import '@/assets/fonts/font.css'
+import axios from 'axios';
 
 export default {
   name: 'App',
