@@ -11,17 +11,15 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
+	@Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
-        http
-            .authorizeHttpRequests(authorize -> authorize
-                .antMatchers("/admin").hasRole("ADMIN")
-                .anyRequest().authenticated()
-            )
-            .formLogin(withDefaults()) // 로그인 폼을 사용
-            .logout(withDefaults()); // 로그아웃 설정 추가
-
+    	http	
+    	.authorizeHttpRequests((auth)->auth
+    			.antMatchers("/").permitAll()
+    			
+    		).formLogin(withDefaults());
+    	
+    
         return http.build();
     }
 }
