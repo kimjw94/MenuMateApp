@@ -101,9 +101,18 @@ export default {
 }
 
 /* 메인 컨텐츠 영역 설정 */
+
+.ad-space {
+  background-color: #f1f1f1;
+  padding: 160px;
+  text-align: center;
+  margin: 30px 0;
+}
+
 .startMenuMate {
   text-align: center;
   margin-top: 50px;
+  margin-bottom: 50px;
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
