@@ -1,5 +1,9 @@
+
+--멤버 메뉴 메이트 어플
+
 CREATE TABLE Member_MenuMateApp (
-    userId VARCHAR2(50) PRIMARY KEY,         -- 아이디, 기본 키로 설정
+    memberId VARCHAR2(50) PRIMARY KEY,             -- 회원번호, 기본 키로 설정
+    userId VARCHAR2(50) UNIQUE NOT NULL,     -- 아이디, 고유값으로 설정
     userPassword VARCHAR2(100) NOT NULL,     -- 비밀번호
     userName VARCHAR2(100) NOT NULL,         -- 이름
     phoneNumber VARCHAR2(15),                -- 전화번호
@@ -9,3 +13,11 @@ CREATE TABLE Member_MenuMateApp (
 );
 
 select * from  MEMBER_MENUMATEAPP;
+
+CREATE SEQUENCE memberId_seq;
+
+drop table MEMBER_MENUMATEAPP cascade constraint;
+DROP SEQUENCE MEMBERID_SEQ;
+
+
+

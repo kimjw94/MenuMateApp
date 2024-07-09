@@ -1,4 +1,4 @@
-package com.jw.menumateapp.controller;
+package com.jw.menumateapp.common.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
