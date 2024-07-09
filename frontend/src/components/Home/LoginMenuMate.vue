@@ -1,48 +1,58 @@
 <template>
-    <div class="login-container">
-      <div class="login-card">
-        <h2>로그인 페이지</h2>
-        <form @submit.prevent="login">
-          <div class="form-group">
-            <label for="username">아이디:</label>
-            <input type="text" id="username" v-model="user.username" required />
-          </div>
-  
-          <div class="form-group">
-            <label for="password">비밀번호:</label>
-            <input type="password" id="password" v-model="user.password" required />
-          </div>
-  
-          <button type="submit" class="login-button">로그인</button>
-        </form>
-  
-        <div class="signup-link">
-          <span>아직 회원이 아니신가요?</span>
-          <router-link to="/signup" class="nav-item">회원가입</router-link>
+  <div class="login-container">
+    <div class="login-card">
+      <h2>로그인 페이지</h2>
+      <form @submit.prevent="login">
+        <div class="form-group">
+          <label for="userId">아이디:</label>
+          <input type="text" id="userId" v-model="user.userId" required />
         </div>
+
+        <div class="form-group">
+          <label for="userPassword">비밀번호:</label>
+          <input type="password" id="userPassword" v-model="user.userPassword" required />
+        </div>
+
+        <button type="submit" class="login-button">로그인</button>
+      </form>
+
+      <div class="signup-link">
+        <span>아직 회원이 아니신가요?</span>
+        <router-link to="/signup" class="nav-item">회원가입</router-link>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'LoginMenuMate',
-    data() {
-      return {
-        user: {
-          username: '',
-          password: ''
-        }
-      }
-    },
-    methods: {
-      login() {
-        console.log('Logging in with', this.user);
-        // 로그인 로직을 여기에 추가합니다.
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'LoginMenuMate',
+  data() {
+    return {
+      user: {
+        userId: '',
+        userPassword: ''
       }
     }
+  },
+  methods: {
+    login(){
+      axios.post('/api/loginProc',this.user)
+      .then(response=>{
+        console.log(response.data);
+        this.$router.push('/');
+      })
+      .catch(error=>{
+        console.error(error);
+        //
+      })
+    }
+   
   }
-  </script>
+}
+</script>
   
   <style scoped>
   .login-container {

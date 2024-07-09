@@ -133,7 +133,7 @@ export default {
     address: completeAddress
   };
 
-  axios.post('/api/signup', signUpData, {
+  axios.post('/api/signupProc', signUpData, {
     headers: {
       'Content-Type': 'application/json'
     }
@@ -141,6 +141,7 @@ export default {
   .then(response => {
     console.log('회원가입 성공: ', response.data);
     alert('회원가입 성공');
+    this.$router.push('/')
   })
   .catch(error => {
     console.error('회원가입 실패:', error);
